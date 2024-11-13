@@ -32,7 +32,7 @@ public class Day10 {
         } else if (radius >= 100) {
             System.out.println("The enemy is out of view");
 
-        } else if (radius > 5 && radius < 100) {
+        } else if (radius > 5) {
             if (xCoord == 0 && yCoord > 0) {
                 System.out.println("The enemy is directly to the north");
             } else if (xCoord == 0 && yCoord < 0) {
@@ -54,6 +54,7 @@ public class Day10 {
 
 
             if ((xCoord==0) || (yCoord==0)){
+                System.out.println(" ");
             }
             else if (phi2 > 350 || phi2 < 10) {
                 System.out.println("The enemy is to the west");
@@ -69,7 +70,7 @@ public class Day10 {
                 System.out.println("the enemy is to the southeast");
             } else if (phi2 > 260 && phi2 < 280){
                 System.out.println("The enemy is to the south");
-            } else if (phi2 >= 280 && phi2 <= 350){
+            } else if (phi2 >= 280){
                 System.out.println("the enemy is to the southwest");
             }
 
