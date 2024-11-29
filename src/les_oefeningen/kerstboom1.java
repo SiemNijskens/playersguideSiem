@@ -1,7 +1,7 @@
 package les_oefeningen;
 import java.util.Scanner;
 
-public class kerstboompjes {
+public class kerstboom1 {
     public static void main (String[] args){
         Scanner scanner = new Scanner (System.in);
         //i Print een vierkant van een gekozen symbool

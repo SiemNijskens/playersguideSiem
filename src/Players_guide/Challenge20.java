@@ -13,12 +13,22 @@ public class Challenge20 {
     Place these methods in at least one of your previous programs to improve it.*/
         int userinput = askForNumber();
         System.out.println(userinput);
-
+        String text = "what is the airspeed velocity of an unladen swallow?";
     }
 
     public static int askForNumber() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter a number");
         return Integer.valueOf((scanner.next()));
+    }
+    public static int askForNumberInRange(String text, int min, int max){
+        Scanner scanner = new Scanner(System.in);
+        int number;
+        System.out.println(text);
+        do {
+            System.out.println("enter a number between " + min + " and " + max);
+            number = scanner.nextInt();
+        } while (number<=max && number>= min);
+        return number;
     }
 }
