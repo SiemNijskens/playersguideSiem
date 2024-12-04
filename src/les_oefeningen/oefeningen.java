@@ -1,6 +1,6 @@
 package les_oefeningen;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
 public class oefeningen {
     public static void main(String[] args) {
@@ -31,9 +31,9 @@ public class oefeningen {
             System.out.println("er zitten " + uurnaarmin + " minuten in " + uur + " uren");
 
             int totaal = jaarnaarmin+maandnaarmin+weeknaarmin+dagnaarmin+uurnaarmin;
-            System.out.println("er zitten in totaal " + totaal + " minuten in de opgegeven tijdsperiode");*/
+            System.out.println("er zitten in totaal " + totaal + " minuten in de opgegeven tijdsperiode");
         Scanner scanner = new Scanner(System.in);
-
+*/
 /*        System.out.println("gebruik je celcius (ja of nee antwoorden graag)");
         String celcius = scanner.nextLine();
 
@@ -83,5 +83,44 @@ public class oefeningen {
 
 
 
+
+ /*       String browser = scanner.next();
+
+        switch (browser) {
+            case "Edge":
+                System.out.println("Je gebruikt Edge");
+                break;
+            case "Chrome":
+            case "Firefox":
+            case "Opera":
+                System.out.println("Je gebruikt een moderne browser");
+                break;
+            case "IE":
+                System.out.println("Waarom gebruik je in godsnaam Internet Explorer");
+                break;
+            default:
+                System.out.println("Je gebruikt een niet-ondersteunde browser");
+        }*/
+
+        /*if (start>=stop) {
+            System.out.println(start);
+            return start + countdown(start - 1, stop);
+        }
+        return stop;*/
+
+        System.out.println(fibonacci(48));
+
+    }
+    public static int fibonacci(int n) {
+        int currentNr = 0;
+        int nextNr = 1;
+
+        for (int i = 0; i < n; i++) {
+            int getal = currentNr + nextNr;
+            currentNr = nextNr;
+            nextNr=getal;
+
+        }
+        return currentNr;
     }
 }
