@@ -3,16 +3,17 @@ package les_oefeningen;
 public class fibonaccimain {
     public static void main(String[] args) {
         long startTime = System.nanoTime();
-        int fibonaccigetal = 50;
+        int fibonaccigetal = 52;
 
         int currentNr = 0;
         int nextNr = 1;
-        int getal;
+        int getal = 0;
         for (int i = 0; i < fibonaccigetal; i++) {
             getal = currentNr + nextNr;
             currentNr = nextNr;
             nextNr = getal;
         }
+        System.out.println(getal);
         long endTime = System.nanoTime();
 
         long duration = (endTime - startTime);
