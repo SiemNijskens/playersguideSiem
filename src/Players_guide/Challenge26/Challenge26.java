@@ -1,5 +1,6 @@
 package Players_guide.Challenge26;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Challenge26 {
@@ -13,7 +14,7 @@ public class Challenge26 {
             for (Head myVar : Head.values()) {
                 System.out.println(myVar);
             }
-            String usersHead = scanner.next().toLowerCase();
+            String usersHead = scanner.nextLine().toLowerCase();
             Arrow.setHead(headSelection(usersHead));
             if (Arrow.getHead() == null) {
                 System.out.println("invalid input");
@@ -29,7 +30,7 @@ public class Challenge26 {
             for (Fletching myVar : Fletching.values()) {
                 System.out.println(myVar);
             }
-            String usersFletching = scanner.next().toLowerCase();
+            String usersFletching = scanner.nextLine().toLowerCase();
             Arrow.setFletching(fletchingSelection(usersFletching));
 
         } while (Arrow.getFletching() == null);
@@ -40,8 +41,13 @@ public class Challenge26 {
         System.out.println("how long do you want your arrow to be");
         do {
             System.out.println("arrows can be between 60 and 100 cm long");
-            Arrow.setLength(scanner.nextFloat());
-
+                try {
+                    String s = scanner.nextLine();
+                    Arrow.setLength(Float.parseFloat(s));
+                }
+                catch (NumberFormatException e){
+                    Arrow.setLength(0);
+                    }
         } while (Arrow.getLength() < 60f || Arrow.getLength() > 100f);
 
         Arrow arrow = new Arrow(Arrow.getLength(), Arrow.getFletching(), Arrow.getHead());
@@ -91,8 +97,6 @@ public class Challenge26 {
                 return 5f;
         }
         return 0;
-        //For arrowheads, steel costs 10 gold, wood costs 3 gold, and obsidian costs 5 gold.
-        //For fletching, plastic costs 10 gold, turkey feathers cost 5 gold, and goose feathers cost 3 gold.
     }
 
     private static float getHeadCost(Head head) {

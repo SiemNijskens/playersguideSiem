@@ -2,6 +2,9 @@ package les_oefeningen;
 
 // import java.util.Scanner;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class oefeningen {
     public static void main(String[] args) {
           /*  Scanner scanner = new Scanner (System.in);
@@ -108,7 +111,7 @@ public class oefeningen {
         }
         return stop;*/
 
-        System.out.println(fibonacci(48));
+    /*    System.out.println(fibonacci(48));
 
     }
     public static int fibonacci(int n) {
@@ -121,6 +124,12 @@ public class oefeningen {
             nextNr=getal;
 
         }
-        return currentNr;
+        return currentNr;*/
+        try {
+            FileInputStream fis = new FileInputStream("test.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("file not found");
+        }
+
     }
 }

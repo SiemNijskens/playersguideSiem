@@ -16,7 +16,7 @@ public class Challenge25 {
             for (Head myVar : Head.values()) {
                 System.out.println(myVar);
             }
-            String usersHead = scanner.next().toLowerCase();
+            String usersHead = scanner.nextLine().toLowerCase();
             head = headSelection(usersHead);
             if (head == null) {
                 System.out.println("invalid input");
@@ -32,16 +32,17 @@ public class Challenge25 {
             for (Fletching myVar : Fletching.values()) {
                 System.out.println(myVar);
             }
-            String usersFletching = scanner.next().toLowerCase();
+            String usersFletching = scanner.nextLine().toLowerCase();
             fletching = fletchingSelection(usersFletching);
 
-        } while (head == null);
+        } while (fletching == null);
         System.out.println(fletching);
 
         System.out.println("how long do you want your arrow to be");
         do {
             System.out.println("arrows can be between 60 and 100 cm long");
-            length = scanner.nextFloat();
+            String s = scanner.nextLine();
+            length = Float.parseFloat(s);
 
         } while (length < 60f || length > 100f);
 
