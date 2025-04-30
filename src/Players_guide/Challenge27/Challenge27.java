@@ -9,9 +9,9 @@ public class Challenge27 {
         Arrow arrow = new Arrow();
         System.out.println("welcome to Vin Fletcher's arrowshop");
 
-        System.out.println("I make custom arrow and i have a few standard options. Here's a list of the options");
+        System.out.println("I make custom arrows and i have a few standard options. Here's a list of the options");
         System.out.println("Custom, beginner arrow, marksman arrow or elite arrow");
-        String arrowtype="henk";
+        String arrowtype=null;
         ArrowType usertype = null;
         int flag = 1;
         while (flag == 1) {
