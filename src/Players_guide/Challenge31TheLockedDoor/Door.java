@@ -1,84 +1,92 @@
 package Players_guide.Challenge31TheLockedDoor;
 
+import static Players_guide.Challenge31TheLockedDoor.Lockstate.Closed;
+
 public class Door {
-    Lockstate state = Lockstate.Locked;
+    Lockstate state;
     private int passcode;
 
-    public Door(int passcode, Lockstate state){
+    public Door(int passcode, Lockstate state) {
         this.passcode = passcode;
         this.state = state;
     }
 
-    public String closeDoor (){
-        if (this.state.equals(Lockstate.Open)){
-            this.state = Lockstate.Closed;
+    public String closeDoor() {
+        if (this.state.equals(Lockstate.Open)) {
+            this.state = Closed;
             return "the door is closed";
         }
-        else {
-            return "the door is already closed";
-        }
+        return "the door is already closed";
     }
 
-    public String openDoor(){
-        if (this.state.equals(Lockstate.Open)){
+    public String openDoor() {
+        if (this.state.equals(Lockstate.Open)) {
             return "the door is already open, you open it a little bit further idk";
-        }
-        else if(this.state.equals(Lockstate.Closed)){
+        } else if (this.state.equals(Closed)) {
             this.state = Lockstate.Open;
             return "the door is opened";
-        }
-        else if (this.state.equals(Lockstate.Locked)){
+        } else if (this.state.equals(Lockstate.Locked)) {
             return "the door is locked you need to unlock it first";
-        }
-        else return"i have no idea what you did but you broke my code";
+        } else return "i have no idea what you did but you broke my code";
     }
 
-    public String lockDoor(){
-        if (this.state.equals(Lockstate.Closed)){
+    public String lockDoor() {
+        if (this.state.equals(Closed)) {
             this.state = Lockstate.Locked;
             return "the door is now locked";
-        }
-        else if (this.state.equals(Lockstate.Locked)){
+        } else if (this.state.equals(Lockstate.Locked)) {
             return "the door is already locked";
-        }
-        else {
-            return "the door is opened, are you sure you want to close it dumbdumb?";
+        } else {
+            return "the door is opened, are you sure you want to lock it now dumdum?";
         }
     }
 
-    public String unlockDoor (int passcode){
+    public void unlockDoor(int passcode) {
         if (this.state.equals(Lockstate.Locked)) {
             if (passcode == this.passcode) {
-                this.state = Lockstate.Closed;
-                return "the door is now unlocked";
+                this.state = Closed;
+                System.out.println("the door is now unlocked");
 
             } else {
-                return "the passcode is wrong, the door is still lost";
+                System.out.println("the passcode is wrong, the door is still locked");
             }
-        }
-            else if (this.state.equals(Lockstate.Closed)){
-                return "the door is already unlocked";
-        }
-            else {
-                return "the door is already opened";
+        } else if (this.state.equals(Closed)) {
+
+            System.out.println("the door is already unlocked");
+        } else {
+            System.out.println("the door is already opened");
         }
     }
 
-    public String ChangePasscode(int oldPasscode, int newPasscode){
-        if (oldPasscode==this.passcode){
+    public void ChangePasscode(int oldPasscode, int newPasscode) {
+        if (oldPasscode == this.passcode) {
             this.passcode = newPasscode;
-            return "the passcode was changed";
+            System.out.println("the passcode was changed");
+        } else {
+            System.out.println("you entered the wrong passcode. the passcode is not changed");
         }
-        else {
-            return "you entered the wrong passcode. the passcode is not changed";
+    }
+
+    public static String getLockstate(Door door) {
+        switch (door.state) {
+            case Lockstate.Closed:
+                return "closed";
+            case Lockstate.Locked:
+                return "Locked";
+            case Lockstate.Open:
+                return "Open";
+            default:
+                return "";
+
         }
     }
 }
 
 
+
 /*
 An open door can always be closed.
-        A closed (but not locked) door can always be opened.
+A closed (but not locked) door can always be opened.
 A closed door can always be locked.
 A locked door can be unlocked, but a numeric passcode is needed, and the door will only unlock if
 the code supplied matches the door’s current passcode.
