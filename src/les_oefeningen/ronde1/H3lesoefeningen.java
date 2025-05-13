@@ -1,4 +1,4 @@
-package les_oefeningen;
+package les_oefeningen.ronde1;
 
 public class H3lesoefeningen {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package les_oefeningen.vogel;
+package les_oefeningen.ronde1.vogel;
 
 public class Vogel {
     public boolean isGechipt;

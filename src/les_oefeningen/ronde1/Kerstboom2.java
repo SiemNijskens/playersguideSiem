@@ -1,8 +1,8 @@
-package les_oefeningen;
+package les_oefeningen.ronde1;
 
 import java.util.Scanner;
 
-public class Kerstboom3 {
+public class Kerstboom2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //ii Print een driehoek met een gekozen symbool
@@ -13,10 +13,7 @@ public class Kerstboom3 {
         int regels = scanner.nextInt();
 
         for (int i = 1; i <= regels; i++) {
-            for (int j = 1; j <= regels - i; j++){
-                System.out.print(" ");
-            }
-            for (int k = 1; k<=i; k++){
+            for (int j = 1; j <= i; j++) {
                 System.out.print(symbool);
             }
             System.out.print('\n');

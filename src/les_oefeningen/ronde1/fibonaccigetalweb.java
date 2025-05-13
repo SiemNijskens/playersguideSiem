@@ -1,4 +1,4 @@
-package les_oefeningen;
+package les_oefeningen.ronde1;
 
 // Function to multiply two 2x2 matrices
 class fibonaccigetalweb {

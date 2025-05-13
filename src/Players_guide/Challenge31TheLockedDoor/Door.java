@@ -6,41 +6,28 @@ public class Door {
     Lockstate state;
     private int passcode;
 
+    // constructor for a door
     public Door(int passcode, Lockstate state) {
         this.passcode = passcode;
         this.state = state;
     }
 
-    public String closeDoor() {
-        if (this.state.equals(Lockstate.Open)) {
-            this.state = Closed;
-            return "the door is closed";
-        }
-        return "the door is already closed";
+    // method to close the door
+    public void closeDoor() {
+        this.state = Closed;
     }
 
-    public String openDoor() {
-        if (this.state.equals(Lockstate.Open)) {
-            return "the door is already open, you open it a little bit further idk";
-        } else if (this.state.equals(Closed)) {
-            this.state = Lockstate.Open;
-            return "the door is opened";
-        } else if (this.state.equals(Lockstate.Locked)) {
-            return "the door is locked you need to unlock it first";
-        } else return "i have no idea what you did but you broke my code";
+    //method to open the door
+    public void openDoor() {
+        this.state = Lockstate.Open;
     }
 
-    public String lockDoor() {
-        if (this.state.equals(Closed)) {
-            this.state = Lockstate.Locked;
-            return "the door is now locked";
-        } else if (this.state.equals(Lockstate.Locked)) {
-            return "the door is already locked";
-        } else {
-            return "the door is opened, are you sure you want to lock it now dumdum?";
-        }
+    // method to lock the door
+    public void lockDoor() {
+        this.state = Lockstate.Locked;
     }
 
+    //method to unlock the door and check the passcode
     public void unlockDoor(int passcode) {
         if (this.state.equals(Lockstate.Locked)) {
             if (passcode == this.passcode) {
@@ -58,6 +45,7 @@ public class Door {
         }
     }
 
+    //method to change the passcode
     public void ChangePasscode(int oldPasscode, int newPasscode) {
         if (oldPasscode == this.passcode) {
             this.passcode = newPasscode;
@@ -67,6 +55,7 @@ public class Door {
         }
     }
 
+    //method to return the lockstate of the door
     public static String getLockstate(Door door) {
         switch (door.state) {
             case Lockstate.Closed:

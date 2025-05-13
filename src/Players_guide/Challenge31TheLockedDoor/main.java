@@ -18,7 +18,7 @@ public class main {
         System.out.println("Please enter a starting passcode for the door");
         System.out.println("It should consist of a few numbers");
         Scanner scanner = new Scanner(System.in);
-        int startingPasscode=0;
+        int startingPasscode = 0;
 
         //het try catch block elimineert non int input voor de passcode en zet een default passcode op 123
         try {
@@ -50,12 +50,14 @@ public class main {
 
 
                 // de input checker controleerd of je niet de deur open wilt doen terwijl hij al open is of open wilt doen als hij op slot zit e.d.
-                // als de input checker true returnt dan voert de action methode uit. deze methode verandert zo nodig de doorstate ook het stukje om de password te veranderen zit hierin verwerkt
+                // als de input checker true returnt dan voert de action methode uit. deze methode verandert zo nodig de doorstate ook het stukje om de passcode te veranderen zit hierin verwerkt
                 if (inputChecker(input, door)) {
                     action(input, door);
                 } else {
                     System.out.println("your input is invalid");
                 }
+
+                // als de input 9 is dan wil de gebruiker het programma sluiten. dit doet hij door de main functie te returnen
                 if (input == '9') {
                     return;
                 }
@@ -64,7 +66,7 @@ public class main {
     }
 
     public static boolean inputChecker(char input, Door door) {
-
+        // this method checks if the input of the user is even possible. i.e. you can't close a door that is already closed or even locked
         switch (input) {
             case '1':
                 if (door.state == Lockstate.Locked) {
@@ -90,7 +92,8 @@ public class main {
         }
         return false;
     }
-/*1 unlock the door
+/*reminder possible door actions
+1 unlock the door
 2 lock the door
 3 open the door
 4 close the door
@@ -98,6 +101,7 @@ public class main {
 9 end the program*/
 
     public static void action(char input, Door door) {
+        //this method checks the user input and reacts accordingly. changing the doorstate or changing the passcode
         switch (input) {
             case '1':
                 System.out.println("Please provide the passcode");
@@ -137,6 +141,8 @@ public class main {
     }
 
     public static void getOptions(Door door) {
+
+        // this method/switch returns the possible options depending on the current doorstate
         switch (door.state) {
             case Closed:
                 System.out.println("You can open the door or lock it. You can also change the passcode or close the program");

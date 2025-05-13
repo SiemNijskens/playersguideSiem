@@ -1,5 +1,4 @@
-package les_oefeningen;
-import java.sql.SQLOutput;
+package les_oefeningen.ronde1;
 import java.util.Scanner;
 
 public class CeasarCode {

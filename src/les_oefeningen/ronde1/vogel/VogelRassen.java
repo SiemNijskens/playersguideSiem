@@ -1,4 +1,4 @@
-package les_oefeningen.vogel;
+package les_oefeningen.ronde1.vogel;
 
 class parkiet extends Vogel{
     String color;

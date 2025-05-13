@@ -1,4 +1,4 @@
-package les_oefeningen;
+package les_oefeningen.ronde1;
 
 import java.util.Scanner;
 
