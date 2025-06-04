@@ -3,7 +3,7 @@
  * Datum : 13-5-2025
  *
  *  challenge32.java:
- *  this program  can be used to validate wether a password has several features like upper case or lowwercase letters.
+ *  this program  can be used to validate whether a password has several features like upper case or lowercase letters.
  *
  */
 
@@ -40,16 +40,11 @@ public class PasswordValidator {
                 return;
             }
         }
-
-
     }
 
     // calls all checker methods in this program to validate the password and returns true if the password meets te requirements
     public static boolean validateAll(String password){
-        if (lenghtChecker(password) && uppercaseChecker(password) && lowercaseChecker(password) && numberChecker(password) && ampersandAndTChecker(password)){
-            return true;
-        }
-        return false;
+        return lengthChecker(password) && uppercaseChecker(password) && lowercaseChecker(password) && numberChecker(password) && ampersandAndTChecker(password);
     }
 
     // allows the user to navigate the program
@@ -75,12 +70,12 @@ public class PasswordValidator {
     }
 
     // checks if the length of the password is between 6 and 13 incl.
-    public static boolean lenghtChecker(String password) {
+    public static boolean lengthChecker(String password) {
         return password.length() >= 6 && password.length() <= 13;
     }
 
     //pulls the input password apart into a char array and then checks each char for uppercases.
-    // if a char is an uppercase letter i becomes 1. if, at the end of the password, i = one, the method returns true
+    // if a char is an uppercase letter "i" becomes 1. if, at the end of the password, i = one, the method returns true
     public static boolean uppercaseChecker(String password) {
         int i = 0;
         for (char ch : password.toCharArray()) {
@@ -115,26 +110,26 @@ public class PasswordValidator {
 
 
     // old method to check for numbers. this method uses a switch statement to check for numbers
-    /*public static boolean numberChecker(String password) {
-        int i = 0;
-        for (char ch : password.toCharArray())
-            switch (ch) {
-                case '0':
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                    i = 1;
-                    break;
-                default:
-            }
-        return i == 1;
-    }*/
+    // public static boolean numberChecker(String password) {
+    //     int i = 0;
+    //     for (char ch : password.toCharArray())
+    //         switch (ch) {
+    //             case '0':
+    //             case '1':
+    //             case '2':
+    //             case '3':
+    //             case '4':
+    //             case '5':
+    //             case '6':
+    //             case '7':
+    //             case '8':
+    //             case '9':
+    //                 i = 1;
+    //                 break;
+    //             default:
+    //         }
+    //     return i == 1;
+    //
 
     // this method uses a switch to check for the characters T and &. if they are found the function returns false
     public static boolean ampersandAndTChecker(String password) {

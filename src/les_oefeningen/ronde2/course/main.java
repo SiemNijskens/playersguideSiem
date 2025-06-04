@@ -9,5 +9,8 @@ public class main {
 
         Course course = new Course(T1, s1, s2, s3);
         course.printDetails();
+        s1.setName("Karl");
+        course.printDetails();
+        T1.setEmail("jorisdeporis@codecafe.nl");
     }
 }
